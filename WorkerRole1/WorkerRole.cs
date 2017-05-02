@@ -30,13 +30,14 @@ namespace WorkerRole1
 
         public override void Run ()
         {
-            Trace.TraceInformation("WorkerRole1 is running");
-
+            Trace.TraceInformation("WorkerRole1 is running properly");
+            
             while(true)
             {
                 try
                 {
-                    CloudQueueMessage msg = this.orderqueue.GetMessage();
+                    CloudQueueMessage msg = null;
+                     msg = this.orderqueue.GetMessage();
 
                     if(msg != null)
                     {
